@@ -4,6 +4,8 @@
 	
 	if(isset($_POST['reg-btn'])){
 		
+        $lastname = $_POST['lastanme'];
+        $firstname = $_POST['firstname'];
 		$username = $_POST['username'];
 		$password = $_POST['password1'];
 		$passwordtwo = $_POST['password2'];
@@ -13,12 +15,12 @@
 		if(mysqli_num_rows($found_user) == 0){
 			if($password == $passwordtwo){
                 $titkositott_jelszo = password_hash($password, PASSWORD_DEFAULT);
-				$conn->query("INSERT INTO users VALUES(id, '$username', '$titkositott_jelszo')");
+				$conn->query("INSERT INTO users VALUES(id, '$lastname', '$firstname', '$username', '$titkositott_jelszo')");
 				header("Location: login.php");
-			}else{
+			} else {
 				echo "A jelszavak nem egyeznek!";
 			}
-		}else{
+		} else {
 			echo "Már létezik ilyen felhasználó!";
 		}
 	}
@@ -39,6 +41,8 @@
         <label>Regisztráció</label>
         <br>
         <label>Már van fiókod? <a href="login.php">Jelentkezz be!</a></label>
+        <input type="text" name="lastanme" placeholder="Vezetéknév">
+        <input type="text" name="firstname" placeholder="Keresztnév">
         <input type="text" name="username" placeholder="Felhasználónév">
         <input type="password" name="password1" placeholder="Jelszó">
         <input type="password" name="password2" placeholder="Jelszó újra">
