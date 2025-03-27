@@ -28,15 +28,19 @@
    </head>
    <body>
    <nav>
-        <ul>                
-            <li><a href="index.php">Főoldal</a></li>
-            <li><a href="search.php">Barát keresés</a></li>
-            <li><a href="game.php">Játék</a></li>
+		<ul>
+			<li><a href="index.php">Főoldal</a></li>
+			<li><a href="notify.php">Értesítések</a></li>
+			<li><a href="search.php">Barát keresése</a></li>
+			<li><a href="game.php">Játék</a></li>
             <li><a href="logout.php">Kijelentkezés</a></li>
-        </ul>
-    </nav>
+		</ul>
+	</nav>
 	<input type="text" class="search-box" id="search-box" placeholder="Felhasználó keresése...">
 	<div class="users" id="users"></div>
    </body>
+   <footer>
+        <p>&copy; 2025 doomhyena. Minden jog fenntartva.</p>
+    </footer>
    <script src="assets/js/script.js"></script>
 </html>

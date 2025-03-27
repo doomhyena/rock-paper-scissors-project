@@ -1,13 +1,12 @@
 Feladat:
 
-Készíts egy oldalhoz egy bejelentkezést és egy regisztrációt
-A jelszavak legyenek titkosítva
-az indexet csak bejelentkezett felhasználó láthassa
-Az indexen legyen egy kereső, ahjol másik felhasználók között lehessen keresni
-Ha rákattint a felhasználó egy másik nevére, nyíljon meg egy oldal
-Ezen az oldalon kő-papír-olló-t tudjon játszani a két felhasználó
-Mind a kettőnek választani kelljen az opciók közül
-Ha az egyik már választott, jelenjen meg neki egy "Már választottál, várakozás a másik játékosra" szöveg. 
-Ha mind a ketten válaszottak, vizsgálja meg az oldal, hogy ki nyert. A játék működését egy külső fájl végezze el.
-
-A nyertes kapjon 10 pontot. Minden felhasználónak 0 pontról kell induljon. Állíts fel egy rangsor az indexen a pontok alapján.
+    Készíts egy oldalhoz egy bejelentkezést és egy regisztrációt
+    A jelszavak legyenek titkosítva
+    az indexet csak bejelentkezett felhasználó láthassa
+    Az indexen legyen egy kereső, ahjol másik felhasználók között lehessen keresni
+    Ha rákattint a felhasználó egy másik nevére, nyíljon meg egy oldal
+    Ezen az oldalon kő-papír-olló-t tudjon játszani a két felhasználó
+    Mind a kettőnek választani kelljen az opciók közül
+    Ha az egyik már választott, jelenjen meg neki egy "Már választottál, várakozás a másik játékosra" szöveg. 
+    Ha mind a ketten válaszottak, vizsgálja meg az oldal, hogy ki nyert. A játék működését egy külső fájl végezze el.
+    A nyertes kapjon 10 pontot. Minden felhasználónak 0 pontról kell induljon. Állíts fel egy rangsor az indexen a pontok alapján.

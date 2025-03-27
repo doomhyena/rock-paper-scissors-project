@@ -48,5 +48,8 @@
         <input type="password" name="password2" placeholder="Jelszó újra">
         <input type="submit" name="reg-btn" value="Regisztráció!">
     </form>
+    <footer>
+        <p>&copy; 2025 doomhyena. Minden jog fenntartva.</p>
+    </footer>
    </body>
 </html>
