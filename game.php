@@ -1,10 +1,20 @@
 <?php
     require "cfg.php";
 
+    $get_username = "SELECT username FROM users WHERE id = '$_COOKIE[id]'";
+    $username_result = $conn->query($get_username);
+    
+    if ($username_result && $username_result->num_rows > 0) {
+        $sql = $username_result->fetch_assoc();
+        $username = $sql['username'];
+    } else {
+        die("Hiba: A felhasználó nem található az adatbázisban.");
+    }
+    
     $found_game = "SELECT * FROM game WHERE username = '{$_COOKIE['username']}'";
     $sql = $conn->query($found_game);
 
-    if (mysqli_num_rows($shit) == 0) {
+    if (mysqli_num_rows($sql) == 0) {
         $username = $_COOKIE['username'];
         $sql = "INSERT INTO game (username, score) VALUES('$username', 0)";
         $conn->query($sql);
