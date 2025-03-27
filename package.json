@@ -1,0 +1,32 @@
+{
+  "name": "rock-paper-scissors-project",
+  "version": "1.0.0",
+  "description": "Rock Paper Scissors Project for Balazs Hujber class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doomhyena/rock-paper-scissors-project.git"
+  },
+  "keywords": [
+    "rock-scissors-paper",
+    "game",
+    "game",
+    "typescript",
+    "nodejs"
+  ],
+  "author": "Csontos Kinvső",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doomhyena/rock-paper-scissors-project/issues"
+  },
+  "homepage": "https://github.com/doomhyena/rock-paper-scissors-project#readme",
+  "dependencies": {
+    "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.32"
+  }
+}

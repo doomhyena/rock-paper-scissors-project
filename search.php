@@ -1,6 +1,6 @@
 <?php 
 
-	require "config.php";
+	require "cfg.php";
 	
 	if(!isset($_COOKIE['id'])){
 		header("Location: reglog.php");
@@ -29,14 +29,14 @@
    </head>
    <body>
    <nav>
-		<ul>
-			<li><a href="index.php">Főoldal</a></li>
-			<li><a href="notify.php">Értesítések</a></li>
-			<li><a href="search.php">Barát keresése</a></li>
-			<li><a href="game.php">Barát keresése</a></li>
+        <ul>                
+            <li><a href="index.php">Főoldal</a></li>
+            <li><a href="search.php">Barát keresés</a></li>
+            <li><a href="">Játék</a></li>
+            <li><a href="rankinglist.php">Ranglista</a></li>
             <li><a href="logout.php">Kijelentkezés</a></li>
-		</ul>
-	</nav>
+        </ul>
+    </nav>
 	<input type="text" class="search-box" id="search-box" placeholder="Felhasználó keresése...">
 	<div class="users" id="users"></div>
    </body>
