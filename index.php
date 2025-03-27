@@ -23,7 +23,7 @@
         <ul>                
             <li><a href="index.php">Főoldal</a></li>
             <li><a href="search.php">Barát keresés</a></li>
-            <li><a href="">Játék</a></li>
+            <li><a href="game.php">Játék</a></li>
             <li><a href="rankinglist.php">Ranglista</a></li>
             <li><a href="logout.php">Kijelentkezés</a></li>
         </ul>
