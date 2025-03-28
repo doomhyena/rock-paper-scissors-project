@@ -72,5 +72,8 @@
                 echo '</form>';
             }
         ?>
+        <div class="footer">
+            <p>2025 doomhyena. Minden jog fenntartva.</p>
+        </div>
    </body>
 </html>

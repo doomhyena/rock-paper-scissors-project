@@ -1,8 +1,3 @@
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: #EFD0CA; 
@@ -66,15 +61,22 @@ form select {
     transition: border-color 0.3s;
 }
 
+form label {
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #979B8D; 
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
 form input[type="submit"] {
     background-color: #5C7457; 
     color: white;
     border: none;
     cursor: pointer;
-}
-
-form input[type="submit"]:hover {
-    background-color: #214E34; 
 }
 
 .stats-container {
@@ -113,17 +115,15 @@ th {
     color: white;
 }
 
-footer {
+.footer {
     background-color: #C1BCAC;
-    color: #214E34; 
-    text-align: center;
-    padding: 15px 0;
-    position: relative;
+    color: #214E34;
+    position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
+    text-align: center;
+  }
 .japanese-style {
     font-family: 'Courier New', monospace; 
     color: #5C7457; 

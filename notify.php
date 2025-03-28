@@ -1,6 +1,6 @@
 <?php 
 
-	require "config.php";
+	require "cfg.php";
 	
 	if(!isset($_COOKIE['id'])){
 		header("Location: reglog.php");
@@ -45,18 +45,15 @@
             $found_requester = $conn->query($sql);
             $requests = $found_requester->fetch_assoc();
     
-            echo '<form class="user" method="post" action="notifs.php?userid='.$requests['id'].'">';
-                
+            echo '<form method="post" action="notifs.php?userid='.$requests['id'].'">';
             echo '<label>'.$requests['username'].'</label>';
-                
             echo '<input type="submit" name="add-friend-btn" value="Visszaigazolás">';
-                    
             echo '</form>';
     
         } ?>
     </div>
-    <footer>
-        <p>&copy; 2025 doomhyena. Minden jog fenntartva.</p>
-    </footer>
+    <div class="footer">
+        <p>2025 doomhyena. Minden jog fenntartva.</p>
+    </div>
     </body>
 </html>

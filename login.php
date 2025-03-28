@@ -49,8 +49,8 @@
             <input type="submit" name="login-btn" value="Bejelentkezés!">
             <label><a href="forgotpass.php">Elfelejtett jelszó</a></label>
         </form>
-    <footer>
-        <p>&copy; 2025 doomhyena. Minden jog fenntartva.</p>
-    </footer>
+        <div class="footer">
+            <p>2025 doomhyena. Minden jog fenntartva.</p>
+        </div>
    </body>
 </html>

@@ -25,6 +25,7 @@
        <meta name='author' content='Csontos Kincső'>
        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
        <link rel='stylesheet' href='assets/css/styles.css'>
+	   <script src="http://code.jquery.com/jquery-latest.js"></script>
    </head>
    <body>
    <nav>
@@ -36,11 +37,14 @@
             <li><a href="logout.php">Kijelentkezés</a></li>
 		</ul>
 	</nav>
-	<input type="text" class="search-box" id="search-box" placeholder="Felhasználó keresése...">
+	<form>
+		<label>Barát keresése</label>
+		<input type="text" class="search-box" id="search-box" placeholder="Felhasználó keresése...">
+	</form>
 	<div class="users" id="users"></div>
    </body>
-   <footer>
-        <p>&copy; 2025 doomhyena. Minden jog fenntartva.</p>
-    </footer>
+   <div class="footer">
+        <p>2025 doomhyena. Minden jog fenntartva.</p>
+    </div>
    <script src="assets/js/script.js"></script>
 </html>

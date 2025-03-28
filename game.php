@@ -100,8 +100,8 @@
         <input type="hidden" name="opponent_move" value="opponent's move here">
         <input type="submit" value="Játék!">
     </form>
-    <footer>
-        <p>&copy; 2025 doomhyena. Minden jog fenntartva.</p>
-    </footer>
+    <div class="footer">
+        <p>2025 doomhyena. Minden jog fenntartva.</p>
+    </div>
    </body>
 </html>
