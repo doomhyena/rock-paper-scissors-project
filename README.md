@@ -5,7 +5,7 @@ Rock Paper Scissors project for Balázs Hujber backend class
 
 What I used at my work:
 
-- **Frontend:** HTML, CSS, Typescript
+- **Frontend:** HTML, CSS, Javascript
 - **Backend:** PHP
 - **Database:** MySQL
 - **Other tools:** Git
