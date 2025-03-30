@@ -12,11 +12,11 @@ What I used at my work:
 
 ## Information
 
-This website is very buggy I know a few bugs. I will fix them. Someday. Maybe.
+This website is a small school project.
 
 ## files:
 
-## PHP files:
+### PHP files:
 
 - **cfg.php:** This file is responsible for the database connection.
 - **finduser.php:** Manages user searches.
