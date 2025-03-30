@@ -36,15 +36,11 @@ This website is very buggy I know a few bugs. I will fix them. Someday. Maybe.
 
 ### JS
 
-- **script.js:** This is what makes the site work. For completeness, check out the typescript file because it has been translated into javascript.
+- **script.js:** This file would help you find your friend.
 
 ### SQL
 
 - **minigame.sql:** The database of the entire site.
-
-### TS
-
-- **script.ts:** This file would help you find your friend if it worked.
 
 ### Other:
 
