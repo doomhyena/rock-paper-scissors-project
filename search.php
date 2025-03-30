@@ -43,8 +43,5 @@
 	</form>
 	<div class="users" id="users"></div>
    </body>
-   <div class="footer">
-        <p>2025 doomhyena. Minden jog fenntartva.</p>
-    </div>
    <script src="assets/js/script.js"></script>
 </html>

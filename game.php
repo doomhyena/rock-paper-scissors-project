@@ -37,7 +37,7 @@
             echo "<script>alert('Az ellenfél még nem tett lépést!')</script>";
             exit();
         }
-        
+
         $get_opponent_id = "SELECT id FROM users WHERE username = '$opponent_username'";
         $opponent_result = $conn->query($get_opponent_id);
         
@@ -119,8 +119,5 @@
         <input type="hidden" name="opponent_move" id="opponent_move">
         <input type="submit" value="Játék!">
     </form>
-    <div class="footer">
-        <p>2025 doomhyena. Minden jog fenntartva.</p>
-    </div>
    </body>
 </html>

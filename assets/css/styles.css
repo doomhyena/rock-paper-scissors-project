@@ -121,17 +121,6 @@ th {
     background-color: #5C7457; 
     color: white;
 }
-
-.footer {
-    background-color: #C1BCAC;
-    color: #214E34;
-    position: relative;
-    width: 100%;
-    text-align: center;
-    opacity: 0;
-    padding: 20px;
-
-}
 .japanese-style {
     font-family: 'Courier New', monospace; 
     color: #5C7457; 
