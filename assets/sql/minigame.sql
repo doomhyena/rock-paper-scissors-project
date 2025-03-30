@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 27. 22:16
+-- Létrehozás ideje: 2025. Már 30. 11:56
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -81,8 +81,8 @@ CREATE TABLE `game` (
 --
 
 INSERT INTO `game` (`id`, `username`, `score`, `games_played`, `wins`, `draws`, `losses`) VALUES
-(1, 'doomhyena', 100, 13, 10, 0, 3),
-(2, 'humbi28', 135, 14, 13, 1, 0),
+(1, 'doomhyena', 150, 21, 15, 0, 6),
+(2, 'humbi28', 165, 22, 16, 1, 5),
 (3, 'ecstaticguineapig', 40, 5, 4, 0, 1),
 (4, 'blanddevil', 35, 9, 0, 7, 2),
 (5, 'computerarrow', 10, 5, 1, 0, 4),
@@ -96,13 +96,35 @@ INSERT INTO `game` (`id`, `username`, `score`, `games_played`, `wins`, `draws`, 
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `moves`
+--
+
+CREATE TABLE `moves` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `move` enum('rock','paper','scissors') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `moves`
+--
+
+INSERT INTO `moves` (`id`, `username`, `move`, `created_at`) VALUES
+(1, 'doomhyena', 'paper', '2025-03-30 08:55:32'),
+(2, 'humbi28', 'rock', '2025-03-30 08:55:46'),
+(3, 'doomhyena', 'paper', '2025-03-30 08:55:52');
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `users`
 --
 
 CREATE TABLE `users` (
   `id` int(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `firstanme` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -111,7 +133,7 @@ CREATE TABLE `users` (
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`id`, `lastname`, `firstanme`, `username`, `password`) VALUES
+INSERT INTO `users` (`id`, `lastname`, `firstname`, `username`, `password`) VALUES
 (1, 'Csontos', 'Kincső', 'doomhyena', '$2y$10$rnuZFvqW9rwqwj4RaoHlNu32zXFtx0.xhW9hwnL0QGhzVsbvW5LKK'),
 (2, 'Hujber ', 'Balázs', 'humbi28', '$2y$10$tKIJidPjDkVUH2ABaKJ/sORFb1daaInfLLzoipJwE0PV7hbgx7h2i'),
 (3, 'Balogh', 'Levente', 'llamaths', '$2y$10$QwndkjyNR0OpkVuN6QP7h.rXivUyO4sSBBeU43Nxs7e1c5Jcyitn6'),
@@ -141,10 +163,18 @@ ALTER TABLE `game`
   ADD PRIMARY KEY (`id`);
 
 --
+-- A tábla indexei `moves`
+--
+ALTER TABLE `moves`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`);
+
+--
 -- A tábla indexei `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_username` (`username`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -163,10 +193,26 @@ ALTER TABLE `game`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT a táblához `moves`
+--
+ALTER TABLE `moves`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Megkötések a kiírt táblákhoz
+--
+
+--
+-- Megkötések a táblához `moves`
+--
+ALTER TABLE `moves`
+  ADD CONSTRAINT `moves_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
