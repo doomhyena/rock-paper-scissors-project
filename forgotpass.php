@@ -24,10 +24,8 @@
                     
                     echo "<form method='post' action='forgotpass.php?userid=$user[id]'>";
                     echo '	<input type="password" name="password1" placeholder="Jelszó">';
-                    echo '	<br><br>';
                     echo '	<input type="password" name="password2" placeholder="Jelszó újra">';
-                    echo '	<br><br>';
-                    echo '	<input type="submit" name="new-pass-btn">';
+                    echo '	<input type="submit" name="new-pass-btn" placeholder="Elküldés">';
                     echo '</form>';
                     
                 } else {
@@ -52,13 +50,10 @@
                         $conn->query("UPDATE users SET password='$password' WHERE id=$userid");
                         
                         echo "A jelszavad sikeresen megváltozott!";
-                        echo "<br><br>";
                         echo "<a href='login.php'>Bejelentkezés</a>";
                         
                     } else {
-                        
                         echo "Az új jelszavad nem egyezhet a régivel.";
-                        
                     }
                 
                 } else {
@@ -68,7 +63,7 @@
                 echo '<h1>Add meg a felhasználónevedet!</h1>';
                 echo '<form method="post">';
                 echo '	<input type="text" name="username" placeholder="Felhasználónév">';
-                echo '	<input type="submit" name="forg-btn">';
+                echo '	<input type="submit" name="forg-btn" placeholder="Elküldés"';
                 echo '</form>';
             }
         ?>

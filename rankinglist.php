@@ -19,8 +19,8 @@
                 <li><a href="logout.php">Kijelentkezés</a></li>
             </ul>
         </nav>
-        <h2>Játékosok ranglistája</h2>
-        <table border="1">
+        <h1>Játékosok ranglistája</h1>
+        <table>
             <tr>
                 <th>Helyezés</th>
                 <th>Felhasználónév</th>

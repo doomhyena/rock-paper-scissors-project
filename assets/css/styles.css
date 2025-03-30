@@ -1,4 +1,5 @@
 body {
+    overflow-y: auto;
     font-family: 'Arial', sans-serif;
     background-color: #EFD0CA; 
     color: #333; 
@@ -94,14 +95,20 @@ form input[type="submit"] {
     margin: 0 10px;
 }
 
-h2 {
+h1 {
     color: #5C7457; 
     text-align: center;
 }
+h2 {
+    color: #5C7457; 
+    position: relative;
+    left: 20px;
+}
 
 table {
-    width: 100%;
+    width: 50%;
     border-collapse: collapse;
+    margin: auto;
 }
 
 th, td {
@@ -118,12 +125,13 @@ th {
 .footer {
     background-color: #C1BCAC;
     color: #214E34;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    position: relative;
     width: 100%;
     text-align: center;
-  }
+    opacity: 0;
+    padding: 20px;
+
+}
 .japanese-style {
     font-family: 'Courier New', monospace; 
     color: #5C7457; 

@@ -1,12 +1,8 @@
 <?php
     require "cfg.php";
 
-    if (!isset($_COOKIE['id'])) {
-        header('Location: reg.php');
-        exit();
-    }
-
-    $get_username = "SELECT username FROM users WHERE id = '{$_COOKIE['id']}'";
+    $user_id = $_COOKIE['id']; 
+    $get_username = "SELECT username FROM users WHERE id = '$user_id'";
     $username_result = $conn->query($get_username);
 
     if ($username_result && $username_result->num_rows > 0) {
@@ -18,43 +14,66 @@
 
     $found_game = "SELECT * FROM game WHERE username = '$username'";
     $sql = $conn->query($found_game);
-
+    
     if ($sql->num_rows == 0) {
         $sql = "INSERT INTO game (username, score, games_played, wins, draws, losses) 
                 VALUES('$username', 0, 0, 0, 0, 0)";
         $conn->query($sql);
     }
 
-    if (isset($_POST['user_move']) && isset($_POST['opponent_move']) && isset($_POST['opponent_username'])) {
+    if (isset($_POST['user_move']) && isset($_POST['opponent_username'])) {
         $user_move = $_POST['user_move'];
-        $opponent_move = $_POST['opponent_move'];
         $opponent_username = $_POST['opponent_username'];
 
-        $check_friend_status = "SELECT * FROM friends 
-                                WHERE (toid = '$username' AND fromid = '$opponent_username' AND status = 1) 
-                                OR (fromid = '$opponent_username' AND toid = '$username' AND status = 1)";
-        $friend_result = $conn->query($check_friend_status);
+        $conn->query("INSERT INTO moves (username, move) VALUES ('$username', '$user_move')");
 
-        if ($friend_result && $friend_result->num_rows > 0) {
-            $winner = determine_winner($user_move, $opponent_move);
+        $get_opponent_move = "SELECT move FROM moves WHERE username = '$opponent_username' ORDER BY created_at DESC LIMIT 1";
+        $opponent_result = $conn->query($get_opponent_move);
+        
+        if ($opponent_result && $opponent_result->num_rows > 0) {
+            $opponent_data = $opponent_result->fetch_assoc();
+            $opponent_move = $opponent_data['move'];
+        } else {
+            echo "<script>alert('Az ellenfél még nem tett lépést!')</script>";
+            exit();
+        }
+        
+        $get_opponent_id = "SELECT id FROM users WHERE username = '$opponent_username'";
+        $opponent_result = $conn->query($get_opponent_id);
+        
+        if ($opponent_result && $opponent_result->num_rows > 0) {
+            $opponent_data = $opponent_result->fetch_assoc();
+            $opponent_id = $opponent_data['id'];
+            
+            $check_friend_status = "SELECT * FROM friends 
+                                    WHERE (toid = '$user_id' AND fromid = '$opponent_id' AND status = 1) 
+                                    OR (fromid = '$user_id' AND toid = '$opponent_id' AND status = 1)";
+            $friend_result = $conn->query($check_friend_status);
 
-            if ($winner === 'user') {
-                $conn->query("UPDATE game SET score = score + 10, games_played = games_played + 1, wins = wins + 1 WHERE username = '$username'");
-                $conn->query("UPDATE game SET games_played = games_played + 1, losses = losses + 1 WHERE username = '$opponent_username'");
-                echo "<script>alert('Te nyertél! 10 pontot gyűjtöttél.')</script>";
-            } elseif ($winner === 'opponent') {
-                $conn->query("UPDATE game SET games_played = games_played + 1, losses = losses + 1 WHERE username = '$username'");
-                $conn->query("UPDATE game SET score = score + 10, games_played = games_played + 1, wins = wins + 1 WHERE username = '$opponent_username'");
-                echo "<script>alert('Te vesztettél! Sok szerencsét legközelebb!')</script>";
+            if ($friend_result && $friend_result->num_rows > 0) {
+                $winner = determine_winner($user_move, $opponent_move);
+
+                if ($winner === 'user') {
+                    $conn->query("UPDATE game SET score = score + 10, games_played = games_played + 1, wins = wins + 1 WHERE username = '$username'");
+                    $conn->query("UPDATE game SET games_played = games_played + 1, losses = losses + 1 WHERE username = '$opponent_username'");
+                    echo "<script>alert('Te nyertél! 10 pontot gyűjtöttél.')</script>";
+                } elseif ($winner === 'opponent') {
+                    $conn->query("UPDATE game SET games_played = games_played + 1, losses = losses + 1 WHERE username = '$username'");
+                    $conn->query("UPDATE game SET score = score + 10, games_played = games_played + 1, wins = wins + 1 WHERE username = '$opponent_username'");
+                    echo "<script>alert('Te vesztettél! Sok szerencsét legközelebb!')</script>";
+                } else {
+                    $conn->query("UPDATE game SET score = score + 5, games_played = games_played + 1, draws = draws + 1 WHERE username = '$username'");
+                    $conn->query("UPDATE game SET score = score + 5, games_played = games_played + 1, draws = draws + 1 WHERE username = '$opponent_username'");
+                    echo "<script>alert('Döntetlen! Mindkét játékos 5 pontot kap.')</script>";
+                }
             } else {
-                $conn->query("UPDATE game SET score = score + 5, games_played = games_played + 1, draws = draws + 1 WHERE username = '$username'");
-                $conn->query("UPDATE game SET score = score + 5, games_played = games_played + 1, draws = draws + 1 WHERE username = '$opponent_username'");
-                echo "<script>alert('Döntetlen! Mindkét játékos 5 pontot kap.')</script>";
+                echo "<script>alert('Te csak barátokkal játszhatsz!')</script>";
             }
         } else {
-            echo "<script>alert('Te csak barátokkal játszhatsz!')</script>";
+            echo "<script>alert('Az ellenfél nem található!')</script>";
         }
     }
+
     function determine_winner($user_move, $opponent_move) {
         if ($user_move === $opponent_move) {
             return 'draw';
@@ -97,7 +116,7 @@
         </select>
         <label>Játékos ellenfél:</label>
         <input type="text" name="opponent_username" placeholder="Írd be a barátod nevét" required>
-        <input type="hidden" name="opponent_move" value="opponent's move here">
+        <input type="hidden" name="opponent_move" id="opponent_move">
         <input type="submit" value="Játék!">
     </form>
     <div class="footer">
