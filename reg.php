@@ -34,6 +34,7 @@
        <meta name='keywords' content='Kő papír olló, kő, papír, olló, game, minigame'>
        <meta name='author' content='Csontos Kincső'>
        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+       <link rel='favicon' href='assets/pics/favicon.ico'>
        <link rel='stylesheet' href='assets/css/styles.css'>
    </head>
    <body>
