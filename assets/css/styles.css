@@ -8,6 +8,33 @@ body {
     line-height: 1.6;
 }
 
+h1, h2 {
+    color: #5C7457; 
+    text-align: center;
+}
+
+h2 {
+    position: relative;
+    left: 20px;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #979B8D; 
+}
+
+th {
+    background-color: #5C7457; 
+    color: white;
+}
+
 nav {
     background-color: #C1BCAC;
     padding: 15px 20px;
@@ -48,6 +75,7 @@ form label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
+    text-align: center;
 }
 
 form input[type="text"],
@@ -62,75 +90,40 @@ form select {
     transition: border-color 0.3s;
 }
 
-form label {
-    text-align: center;
-}
-
-input[type="text"] {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #979B8D; 
-    border-radius: 5px;
-    transition: border-color 0.3s;
-}
 form input[type="submit"] {
     background-color: #5C7457; 
     color: white;
     border: none;
     cursor: pointer;
 }
-.stats, .ranking {
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.stats, .ranking, .user-info {
     background-color: #C1BCAC;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     flex: 1;
     margin: 0 10px;
+    text-align: center;
 }
 
 .user-info {
-    background-color: #C1BCAC;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex: 1;
     width: 50%;
     margin: auto;
-}
-
-.stats {
-    width: 100%;
-    text-align: center;
-}
-
-h1 {
-    color: #5C7457; 
-    text-align: center;
-}
-h2 {
-    color: #5C7457; 
-    position: relative;
-    left: 20px;
-}
-
-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin: auto;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #979B8D; 
-}
-
-th {
-    background-color: #5C7457; 
-    color: white;
 }
 
 @media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+    }
+
     .stats, .ranking, .user-info {
         margin: 10px 0;
     }
