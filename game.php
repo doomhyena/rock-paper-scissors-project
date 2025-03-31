@@ -35,7 +35,6 @@
             $opponent_move = $opponent_data['move'];
         } else {
             echo "<script>alert('Az ellenfél még nem tett lépést!')</script>";
-            exit();
         }
 
         $get_opponent_id = "SELECT id FROM users WHERE username = '$opponent_username'";
