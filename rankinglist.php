@@ -29,7 +29,7 @@
             <?php
             require "cfg.php";
 
-            $ranking_query = "SELECT username, score FROM game ORDER BY score DESC";
+            $ranking_query = "SELECT * FROM game ORDER BY score DESC";
             $ranking_result = $conn->query($ranking_query);
 
             if ($ranking_result->num_rows > 0) {
@@ -37,7 +37,7 @@
                 while ($row = $ranking_result->fetch_assoc()) {
                     echo "<tr>
                             <td>{$rank}</td>
-                            <td>{$row['username']}</td>
+                            <td><a href='profil.php?userid=$row[id]'>{$row['username']}</a></td>
                             <td>{$row['score']}</td>
                         </tr>";
                     $rank++;

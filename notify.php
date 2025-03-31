@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-       <title>Oldal neve</title>
+       <title>Értesítések</title>
        <meta charset='UTF-8'>
        <meta name='description' content='Egyszerű kő papír olló játék PHP segítségével'>
        <meta name='keywords' content='Kő papír olló, kő, papír, olló, game, minigame'>

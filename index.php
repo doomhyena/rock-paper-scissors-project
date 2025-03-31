@@ -3,7 +3,6 @@
 
     if (!isset($_COOKIE['id'])) {
         header('Location: reg.php');
-        exit();
     }
 
     $userid = $_COOKIE['id'];
@@ -77,7 +76,7 @@
                         <th>Pontszám</th>
                     </tr>
                     <?php
-                    $ranking_query = "SELECT username, score FROM game ORDER BY score DESC LIMIT 5";
+                    $ranking_query = "SELECT * FROM game ORDER BY score DESC LIMIT 5";
                     $ranking_result = $conn->query($ranking_query);
 
                     if ($ranking_result->num_rows > 0) {
@@ -85,7 +84,7 @@
                         while ($row = $ranking_result->fetch_assoc()) {
                             echo "<tr>
                                     <td>{$rank}</td>
-                                    <td>{$row['username']}</td>
+                                    <td><a href='profil.php?userid=$row[id]'>{$row['username']}</a></td>
                                     <td>{$row['score']}</td>
                                 </tr>";
                             $rank++;
@@ -99,7 +98,7 @@
             </div>
             <div class="stats">
                 <h2>Statisztikáid</h2>
-                <p><strong>Felhasználónév:</strong> <?php echo htmlspecialchars($username); ?></p>
+                <p><strong>Felhasználónév:</strong> <?php echo $username; ?></p>
                 <p><strong>Pontszám:</strong> <?php echo $score; ?></p>
                 <p><strong>Lejátszott meccsek:</strong> <?php echo $total_games; ?></p>
                 <p><strong>Győzelmek:</strong> <?php echo $wins; ?></p>
