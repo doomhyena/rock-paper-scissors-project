@@ -26,6 +26,7 @@ This website is a small school project.
 - **login.php:** You can log in here.
 - **logout.php:** You can log out here.
 - **notify.php:** Here you can see if someone has added you as a friend.
+- **profi.php:** You can watch other users profile.
 - **ranklist.php:** This file is responsible for displaying the rank list.
 - **reg.php:** You can register here.
 - **search.php:** You can find your friends here.
